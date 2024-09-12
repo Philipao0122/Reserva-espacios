@@ -1,24 +1,24 @@
-<div class="container">
-  <header class="header">
-    <h1>Reserva de Espacios para Eventos</h1>
-    <nav>
-      <a href="#">Administrador</a>
-      <button (click)="login()">Iniciar Sesión</button>
+<div class="container mx-auto p-4 md:p-6 lg:p-8">
+  <header class="header bg-blue-500 text-white p-4 md:p-6 lg:p-8">
+    <h1 class="text-3xl font-bold mb-4">Reserva de Espacios para Eventos</h1>
+    <nav class="flex justify-end">
+      <a href="#" class="text-lg hover:text-blue-700 transition duration-300 ease-in-out">Administrador</a>
+      <button class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded ml-4" (click)="login()">Iniciar Sesión</button>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>Encuentra Espacios Disponibles</h2>
-      <form>
-        <div>
-          <label for="date">Fecha</label>
-          <input type="date" id="date" (change)="handleFilterChange('date', $event)">
+  <main class="mt-8">
+    <section class="bg-white p-4 md:p-6 lg:p-8 shadow-md rounded">
+      <h2 class="text-2xl font-bold mb-4">Encuentra Espacios Disponibles</h2>
+      <form class="flex flex-wrap justify-center mb-4">
+        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4 md:mb-0">
+          <label for="date" class="block text-lg font-bold mb-2">Fecha</label>
+          <input type="date" id="date" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500">
         </div>
 
-        <div>
-          <label for="capacity">Capacidad</label>
-          <select id="capacity" (change)="handleFilterChange('capacity', $event)">
+        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4 md:mb-0">
+          <label for="capacity" class="block text-lg font-bold mb-2">Capacidad</label>
+          <select id="capacity" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500">
             <option value="">Seleccionar Capacidad</option>
             <option value="10">Hasta 10 personas</option>
             <option value="20">Hasta 20 personas</option>
@@ -28,9 +28,9 @@
           </select>
         </div>
 
-        <div>
-          <label for="eventType">Tipo de Evento</label>
-          <select id="eventType" (change)="handleFilterChange('eventType', $event)">
+        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4 md:mb-0">
+          <label for="eventType" class="block text-lg font-bold mb-2">Tipo de Evento</label>
+          <select id="eventType" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500">
             <option value="">Seleccionar Tipo de Evento</option>
             <option value="Reunión">Reunión</option>
             <option value="Taller">Taller</option>
@@ -40,23 +40,40 @@
           </select>
         </div>
       </form>
-      <button (click)="applyFilters()">Buscar</button>
     </section>
 
-    <section>
-      <h3>Espacios Disponibles</h3>
-      <div *ngFor="let space of filteredSpaces">
-        <div class="card">
-          <h4>{{ space.title }}</h4>
-          <p>Capacidad: {{ space.capacity }} | Tipo de Evento: {{ space.eventType }}</p>
-          <p>Fecha: {{ space.date }}</p>
-          <button>Reservar</button>
+    <section class="bg-white p-4 md:p-6 lg:p-8 shadow-md rounded mt-8">
+      <h3 class="text-2xl font-bold mb-4">Espacios Disponibles</h3>
+      <div class="flex flex-wrap gap-4">
+        <!-- Ejemplo de tarjetas filtradas visualmente -->
+        <div class="card bg-white p-4 md:p-6 lg:p-8 shadow-md rounded mb-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+          <h4 class="text-lg font-bold mb-2">Espacio 1</h4>
+          <p class="text-lg mb-2">Capacidad: 20 personas | Tipo de Evento: Reunión</p>
+          <p class="text-lg mb-2">Fecha: 2024-09-15</p>
+          <button class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">Reservar</button>
+        </div>
+
+        <div class="card bg-white p-4 md:p-6 lg:p-8 shadow-md rounded mb-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+          <h4 class="text-lg font-bold mb-2">Espacio 2</h4>
+          <p class="text-lg mb-2">Capacidad: 50 personas | Tipo de Evento: Taller</p>
+          <p class="text-lg mb-2">Fecha: 2024-09-20</p>
+          <button class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">Reservar</button>
+        </div>
+
+        <div class="card bg-white p-4 md:p-6 lg:p-8 shadow-md rounded mb-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+          <h4 class="text-lg font-bold mb-2">Espacio 3</h4>
+          <p class="text-lg mb-2">Capacidad: 100 personas | Tipo de Evento: Conferencia</p>
+          <p class="text-lg mb-2">Fecha: 2024-09-25</p>
+          <button class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">Reservar</button>
+        </div>
+
+        <div class="card bg-white p-4 md:p-6 lg:p-8 shadow-md rounded mb-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+          <h4 class="text-lg font-bold mb-2">Espacio 4</h4>
+          <p class="text-lg mb-2">Capacidad: 200 personas | Tipo de Evento: Fiesta</p>
+          <p class="text-lg mb-2">Fecha: 2024-10-01</p>
+          <button class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">Reservar</button>
         </div>
       </div>
     </section>
   </main>
-
-  <footer>
-    &copy; 2023 Reserva de Espacios para Eventos. Todos los derechos reservados.
-  </footer>
 </div>
