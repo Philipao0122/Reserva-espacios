@@ -1,5 +1,6 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'my-app';
+
+
 
   availableSpaces = [
     { title: "Sala de Reuniones A", capacity: "20", eventType: "Reunión", date: "2023-04-15" },
@@ -18,10 +21,15 @@ export class AppComponent implements OnInit {
     { title: "Gimnasio", capacity: "20", eventType: "Entrenamiento", date: "2023-09-07" },
     { title: "Sala de Juegos", capacity: "15", eventType: "Juegos de Mesa", date: "2023-09-09" },
     { title: "Sala de Estudio Comunal", capacity: "10", eventType: "Estudio en Grupo", date: "2023-09-11" },
-    { title: "Sala de Meditación", capacity: "8", eventType: "Meditación", date: "2023-09-13" }
+    { title: "Sala de Meditación", capacity: "8", eventType: "Meditación", date: "2023-09-13" },
+    { title: "Galpon", capacity: "50", eventType: "Fiesta", date: "2023-09-13" }
+    
   ];
 
+  
+
   filteredSpaces = [...this.availableSpaces];
+  showResults = false;  // Bandera que controla la visibilidad de las cards
 
   filters = {
     date: '',
@@ -42,16 +50,36 @@ export class AppComponent implements OnInit {
       const eventTypeMatch = this.filters.eventType ? space.eventType === this.filters.eventType : true;
       return dateMatch && capacityMatch && eventTypeMatch;
     });
+
+    // Activamos la bandera para mostrar los resultados
+    this.showResults = true;
   }
 
   // Método que maneja el cambio de filtros
   handleFilterChange(filterKey: keyof typeof this.filters, event: any) {
     this.filters[filterKey] = event.target.value;
-    this.applyFilters(); // Aplicamos los filtros cada vez que se cambia un valor
   }
 
-  login(): void {
-    // Aquí debes implementar la lógica para el login
-    console.log('Login implementado');
+  // Método que se ejecuta cuando el usuario presiona el botón de búsqueda
+  search() {
+    this.applyFilters();  // Aplicamos los filtros cuando el usuario presiona el botón
   }
+  showLoginPopup = false;
+  username = '';
+  password = '';
+
+
+  login() {
+    console.log('Username:', this.username);
+    console.log('Password:', this.password);
+    
+    if (this.username && this.password) {
+      console.log('Usuario:', this.username);
+      console.log('Contraseña:', this.password);
+      this.showLoginPopup = false; // Cierra el pop-up
+    } else {
+      console.error('Faltan datos de inicio de sesión');
+    }
+  }
+  
 }
