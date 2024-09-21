@@ -65,21 +65,50 @@ export class AppComponent implements OnInit {
     this.applyFilters();  // Aplicamos los filtros cuando el usuario presiona el botón
   }
   showLoginPopup = false;
-  username = '';
+  showSignupPopup = false;
+
+  // Variables para datos del formulario de registro
+  name = '';
+  lastName = '';
+  cedula = '';
+  email = '';
   password = '';
+  telefono = '';
 
+  username = '';
+  loginPassword = '';
 
-  login() {
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
-    
-    if (this.username && this.password) {
-      console.log('Usuario:', this.username);
-      console.log('Contraseña:', this.password);
-      this.showLoginPopup = false; // Cierra el pop-up
-    } else {
-      console.error('Faltan datos de inicio de sesión');
-    }
+  // Función para abrir el popup de inicio de sesión
+  openLoginPopup() {
+    this.showLoginPopup = true;
+    this.showSignupPopup = false; // Oculta el formulario de registro si está visible
   }
-  
+
+  // Función para cerrar el popup de inicio de sesión
+  closeLoginPopup() {
+    this.showLoginPopup = false;
+  }
+
+  // Función para abrir el popup de creación de cuenta y ocultar el de inicio de sesión
+  openSignupPopup() {
+    this.showSignupPopup = true;
+    this.showLoginPopup = false; // Oculta el formulario de inicio de sesión si está visible
+  }
+
+  // Función para cerrar el popup de creación de cuenta
+  closeSignupPopup() {
+    this.showSignupPopup = false;
+  }
+
+  // Función para manejar el inicio de sesión
+  login() {
+    console.log('Iniciando sesión:', this.username);
+    this.closeLoginPopup();
+  }
+
+  // Función para manejar el registro
+  register() {
+    console.log('Registrando usuario:', this.name, this.lastName, this.cedula, this.email);
+    this.closeSignupPopup();
+  }
 }
