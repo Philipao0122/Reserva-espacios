@@ -45,53 +45,77 @@
   </div>
 </div>
 
+<!-- Botón para mostrar el formulario de registro -->
+<div class="mt-6 text-center">
+  <a href="#" class="text-blue-500 hover:underline" (click)="openSignupPopup()">Crear cuenta</a>
+</div>
+
+<!-- Botón para abrir el popup -->
+<div class="mt-6 text-center">
+  <a href="#" class="text-blue-500 hover:underline" (click)="openSignupPopup()">Crear cuenta</a>
+</div>
+
 <!-- Formulario de registro (por defecto oculto) -->
-<div *ngIf="showSignupPopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-  <div class="bg-white p-8 rounded shadow-lg w-full max-w-md">
-    <h2 class="text-2xl font-bold mb-6 text-center text-blue-600">Crear Cuenta</h2>
+<div *ngIf="showSignupPopup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+  <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-xl shadow-lg w-full max-w-lg border border-white border-opacity-30">
+    <h2 class="text-3xl font-extrabold mb-6 text-center text-blue-500">Crear Cuenta</h2>
 
     <form (ngSubmit)="register()">
-      <div class="mb-4">
-        <label for="name" class="block text-lg font-bold mb-2 text-blue-400">Nombre</label>
-        <input id="name" type="text" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500"
-               [(ngModel)]="name" name="name" required>
+      <!-- Grid 2x2 para los primeros 4 inputs -->
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="name" class="block text-lg font-semibold mb-2 text-white">Primer Nombre</label>
+          <input id="name" type="text" class="block w-full p-3 text-lg text-white bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                 [(ngModel)]="name" name="name" required>
+        </div>
+        <div>
+          <label for="secondName" class="block text-lg font-semibold mb-2 text-white">Segundo Nombre</label>
+          <input id="secondName" type="text" class="block w-full p-3 text-lg text-white bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                 [(ngModel)]="secondName" name="secondName" required>
+        </div>
+        <div>
+          <label for="primerApellido" class="block text-lg font-semibold mb-2 text-white">Primer Apellido</label>
+          <input id="primerApellido" type="text" class="block w-full p-3 text-lg text-white bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                 [(ngModel)]="primerApellido" name="primerApellido" required>
+        </div>
+        <div>
+          <label for="segundoApellido" class="block text-lg font-semibold mb-2 text-white">Segundo Apellido</label>
+          <input id="segundoApellido" type="text" class="block w-full p-3 text-lg text-white bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                 [(ngModel)]="segundoApellido" name="segundoApellido" required>
+        </div>
       </div>
 
+      <!-- Inputs adicionales -->
       <div class="mb-4">
-        <label for="lastName" class="block text-lg font-bold mb-2 text-blue-400">Apellidos</label>
-        <input id="lastName" type="text" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500"
-               [(ngModel)]="lastName" name="lastName" required>
-      </div>
-
-      <div class="mb-4">
-        <label for="cedula" class="block text-lg font-bold mb-2 text-blue-400">Cédula</label>
-        <input id="cedula" type="text" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500"
+        <label for="cedula" class="block text-lg font-semibold mb-2 text-white">Cédula</label>
+        <input id="cedula" type="text" class="block w-full p-3 text-lg text-white bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                [(ngModel)]="cedula" name="cedula" required>
       </div>
 
       <div class="mb-4">
-        <label for="email" class="block text-lg font-bold mb-2 text-blue-400">Email</label>
-        <input id="email" type="email" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500"
+        <label for="email" class="block text-lg font-semibold mb-2 text-white">Correo Electrónico</label>
+        <input id="email" type="email" class="block w-full p-3 text-lg text-white bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                [(ngModel)]="email" name="email" required>
       </div>
 
       <div class="mb-4">
-        <label for="password" class="block text-lg font-bold mb-2 text-blue-400">Contraseña</label>
-        <input id="password" type="password" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500"
+        <label for="password" class="block text-lg font-semibold mb-2 text-white">Contraseña</label>
+        <input id="password" type="password" class="block w-full p-3 text-lg text-white bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                [(ngModel)]="password" name="password" required>
       </div>
 
       <div class="mb-4">
-        <label for="telefono" class="block text-lg font-bold mb-2 text-blue-400">Teléfono</label>
-        <input id="telefono" type="tel" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500"
+        <label for="telefono" class="block text-lg font-semibold mb-2 text-white">Teléfono</label>
+        <input id="telefono" type="tel" class="block w-full p-3 text-lg text-white bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                [(ngModel)]="telefono" name="telefono" required>
       </div>
 
+      <!-- Botones -->
       <div class="flex justify-between items-center">
-        <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="closeSignupPopup()">
-          Cancelar
+        <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 ease-in-out" (click)="closeSignupPopup()">
+          Cancelar 
         </button>
-        <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 ease-in-out">
           Registrarse
         </button>
       </div>

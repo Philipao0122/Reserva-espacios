@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent implements OnInit {
   title = 'my-app';
 
-
+  
 
   availableSpaces = [
     { title: "Sala de Reuniones A", capacity: "20", eventType: "Reunión", date: "2023-04-15" },
@@ -74,6 +74,9 @@ export class AppComponent implements OnInit {
   email = '';
   password = '';
   telefono = '';
+  primerApellido = '';
+  segundoApellido = '';
+  secondName = '';  
 
   username = '';
   loginPassword = '';
