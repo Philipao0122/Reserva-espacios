@@ -6,7 +6,9 @@
       "use": "@vercel/static-build",
       "config": {
         "framework": "angular",
-        "build": "ng build --configuration production"
+        "installCommand": "npm install",
+        "buildCommand": "npm run build",
+        "build": ""
       }
     }
   ],
@@ -15,5 +17,8 @@
       "src": "/(.*)",
       "dest": "index.html"
     }
-  ]
+  ],
+  "scripts": {
+    "build": "ng build --configuration production"
+  }
 }
