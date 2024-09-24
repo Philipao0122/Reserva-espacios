@@ -3,13 +3,10 @@
   "builds": [
     {
       "src": "dist/reserva-espacios-front/**/*",
-      "use": "@vercel/static"
+      "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/dist/reserva-espacios-front/$1"
-    }
-  ]
+  "scripts": {
+    "build": "ng build --configuration production"
+  }
 }
