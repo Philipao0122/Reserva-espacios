@@ -18,13 +18,13 @@
     <form (ngSubmit)="login()">
       <div class="mb-4">
         <label for="username" class="block text-lg font-bold mb-2 text-blue-400">Usuario</label>
-        <input id="username" type="text" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500"
+        <input id="username" type="text" class="block w-full text-black delay-300 p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500"
                [(ngModel)]="username" name="username" required>
       </div>
 
       <div class="mb-4">
         <label for="password" class="block text-lg font-bold mb-2 text-blue-400">Contraseña</label>
-        <input id="password" type="password" class="block w-full p-2 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500"
+        <input id="password" type="password" class="block w-full p-2 text-black delay-300 text-lg border border-gray-400 rounded focus:outline-none focus:ring focus:border-blue-500"
                [(ngModel)]="loginPassword" name="password" required>
       </div>
 
