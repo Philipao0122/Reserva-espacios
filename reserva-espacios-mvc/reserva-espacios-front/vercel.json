@@ -2,11 +2,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/reserva-espacios-front/**/*",
-      "use": "@vercel/node"
+      "src": "src/index.html",
+      "use": "@vercel/static-build",
+      "config": {
+        "framework": "angular",
+        "build": "ng build"
+      }
     }
-  ],
-  "scripts": {
-    "build": "ng build --configuration production"
-  }
+  ]
 }
